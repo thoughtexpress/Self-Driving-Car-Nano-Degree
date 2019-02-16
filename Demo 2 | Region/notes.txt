@@ -1,0 +1,19 @@
+Hi All,
+
+While preparing for this test case, here are the facts which helped in easy curation and understanding of the case:
+1. The lanes are parallel and hence they seem to join at the end of the road; which is a case with the parallel lines. They seem to interact at the infinity.
+2. The camera seems to be mounted on the top of the car and hence the lanes merge in the infinity.
+3. the lanes form a triangle, which seem to make a **Region**. 
+4. This region is then formulated and plotted on a graph or in mathematical terms. This is a elaborative things, so here it goes:
+  a. x,y are the coordincates where x=0, y=0 means **Upper Left** of the image. 
+  b. Since this region is a triangle, we will need to specify the region and separate them using Lines. 
+  c. And as it goes, Lines are always in format **Y=MX+C**, we will be requiring 3 different lines to map the triangular region.
+  d. **np.polyfit** is the function used to specify the any curves (linear or non linear). 
+  e. **np.polyfit(x, y, deg, rcond=None, full=False, w=None, cov=False)**. Ref:(https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html)
+  f. For our triangular region, there are 3 points, **Left Bottom, Right Bottom and Apex**. 
+  g. For each 2 points, a line will be drawn using np.polyfit, and hence the function : np.polyfit((left_bottom[0], apex[0]), (left_bottom[1], apex[1]), 1)
+  h. 1st variable is for x coordinate, 2nd is for y coordinate, 3rd is for the degree of polynomial, which is 1 (Line) in our case.
+  
+5. Once the lines are formed, we will find the region inside these lines.
+6. **np.meshgrid** returns the coordinate matrices from a vector. Ref : (https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html)
+7. Once the lines are spotted, we will color them red, so as to identify our triangular region.
