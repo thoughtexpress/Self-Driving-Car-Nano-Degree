@@ -1,0 +1,10 @@
+Hi All,
+
+Welcome to the 1st demo on the Self Driving Car Nano Degree. This demo will help plot the lanes in a given image.
+We will highlight the white lines and then discard everything else in the image. 
+
+Now some pre-requisites:
+  1. We will import pyplot, and image libraries from matplotlib and work with them.
+  2. **!!Always make a copy of the test file before working on it. Else the test image will be written over by your code!!**
+  3. We take the size of the image and then create a copy accordingly.
+  4. For any color to be represented, we use **RGB format**. 
